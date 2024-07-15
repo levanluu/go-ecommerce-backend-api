@@ -1,0 +1,21 @@
+name: Deploy STAGE environment
+on:
+  workflow_call:
+
+  push:
+    branches:
+      - chore_test_github
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: "Trigger gcloud build"
+        run: |
+            cd docs
+            sed -i '' -e "s|'{GCP_ADDRESS}'|https://github.com|g" -e "s|\"{GCP_ADDRESS}\"|https://github.com|g" swagger.yaml
+            cat swagger.yaml

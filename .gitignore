@@ -25,6 +25,3 @@ go.work.sum
 .env
 # config file
 production.yaml
-
-# log file
-log*
