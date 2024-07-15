@@ -14,10 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: "Trigger gcloud build"
+      - name: List files in the current directory
+        run: ls -al
+    
+      - name: Change directory to docs and update swagger.yaml
         run: |
-          ls -al
           cd docs
-          ls -al
           sed -i '' -e "s|'{GCP_ADDRESS}'|https://github.com|g" -e "s|\"{GCP_ADDRESS}\"|https://github.com|g" swagger.yaml
           cat swagger.yaml
