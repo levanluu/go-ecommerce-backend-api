@@ -16,6 +16,6 @@ jobs:
 
       - name: "Trigger gcloud build"
         run: |
-            cd docs
+            ls -al
             sed -i '' -e "s|'{GCP_ADDRESS}'|https://github.com|g" -e "s|\"{GCP_ADDRESS}\"|https://github.com|g" swagger.yaml
             cat swagger.yaml
