@@ -20,5 +20,5 @@ jobs:
       - name: Change directory to docs and update swagger.yaml
         run: |
           cd docs
-          sed -i '' -e "s|'{GCP_ADDRESS}'|https://github.com|g" -e "s|\"{GCP_ADDRESS}\"|https://github.com|g" swagger.yaml
+          sed -i'.bak' -e "s|'{GCP_ADDRESS}'|https://github.com|g" -e "s|\"{GCP_ADDRESS}\"|https://github.com|g" swagger.yaml
           cat swagger.yaml
